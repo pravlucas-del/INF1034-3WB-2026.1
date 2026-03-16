@@ -1,0 +1,1 @@
+print("Akuma no Mi.")
