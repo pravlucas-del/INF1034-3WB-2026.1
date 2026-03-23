@@ -7,7 +7,7 @@ import turtle
 screen = turtle.Screen()
 screen.title("Bandeira Costa Rica")
 screen.setup(width=600, height=400)
-t= Turtle()
+t = Turtle()
 t.speed(5)
 t.hideturtle()
 altura_total=200
@@ -26,6 +26,7 @@ def desenhar_faixa(cor,y):
         t.forward(largura_faixa)
         t.right(90)
     t.end_fill()
+
 desenhar_faixa("#0034a3",100)
 desenhar_faixa("white",100 - largura_faixa)
 desenhar_faixa("#dc202c", 100-2 * largura_faixa)
@@ -39,16 +40,12 @@ t.clear()
 
 def principal():
     # Bandeira Holanda 25xp 
-    facil(-450,300,900,200,'#ae1c28')
-    facil(-450,100,900,200,'#ffffff')
-    facil(-450,-100,900,200'#21468b')
-    base()
+    pass
 
     # Bandeira Brasil 25xp 
 
 def desenhar_bandeira():
     screen.title("Bandeira do Brasil")
-    t.Turtle()
     t.speed(5)
 
     # 1. Retângulo Verde
@@ -71,10 +68,10 @@ def desenhar_bandeira():
     t.color("#ffcb00")
     t.begin_fill()
     t.goto(180, 0)   
-    t.goto(0, -100)
-    t.goto(-180, 0)  
-    t.goto(0, 100)   
-    t.end_fill()
+t.goto(0, -100)
+t.goto(-180, 0)  
+t.goto(0, 100)   
+t.end_fill()
 
     # 3. Círculo Azul
     t.pu()
@@ -134,7 +131,6 @@ draw_retangulo("#000000", -largura/2 + red_largura, -altura/2, strip_largura, st
 # Bandeira Paquistão 50xp 3
 
 def draw_flag():
-    t.Turtle()
     t.speed(3)
     
     # Configurações iniciais
@@ -199,8 +195,7 @@ draw_flag()
 
 # Bandeira Turquia 50xp 4
 
-def desenhar_bandeira():
-    t.Turtle()
+def desenhar_bandeira_turquia():
     t.speed(3)
     
     # Configurações iniciais
@@ -241,11 +236,11 @@ def desenhar_bandeira():
     t.hideturtle()
     turtle.done()
 
-desenhar_bandeira()
+desenhar_bandeira_turquia()
 
 # Bandeira Noruega 50xp 5 
 
-def draw_retangulo(t, color, largura, altura):
+def draw_retangulo_norway(t, color, largura, altura):
     t.begin_fill()
     t.color(color)
     for _ in range(2):
@@ -255,10 +250,10 @@ def draw_retangulo(t, color, largura, altura):
         t.right(90)
     t.end_fill()
 
-def draw_flag():
+
+def draw_flag_norway():
     screen.title("Bandeira da Noruega")
     
-    t.Turtle()
     t.speed(5)
     
     # Dimensões 
@@ -269,7 +264,7 @@ def draw_flag():
     t.pu()
     t.goto(-110, 80)
     t.pd()
-    draw_retangulo(t, "#BA0C2F", largura, altura) # Vermelho Norueguês
+    draw_retangulo_norway(t, "#BA0C2F", largura, altura) # Vermelho Norueguês
     
     # 2. Cruz Branca (Horizontal e Vertical)
     
@@ -277,13 +272,13 @@ def draw_flag():
     t.pu()
     t.goto(-110, 20) 
     t.pd()
-    draw_retangulo(t, "white", largura, 40)
+    draw_retangulo_norway(t, "white", largura, 40)
     
     # Vertical Branca
     t.pu()
     t.goto(-30, 80)
     t.pd()
-    draw_retangulo(t, "white", 40, altura)
+    draw_retangulo_norway(t, "white", 40, altura)
     
     # 3. Cruz Azul (Horizontal e Vertical)
     
@@ -291,18 +286,18 @@ def draw_flag():
     t.pu()
     t.goto(-110, 10)
     t.pd()
-    draw_retangulo(t, "#00205B", largura, 20) # Azul Norueguês
+    draw_retangulo_norway(t, "#00205B", largura, 20) # Azul Norueguês
     
     # Vertical Azul
     t.pu()
     t.goto(-20, 80)
     t.pd()
-    draw_retangulo(t, "#00205B", 20, altura)
+    draw_retangulo_norway(t, "#00205B", 20, altura)
     
     t.hideturtle()
     screen.exitonclick()
 
-draw_flag()
+draw_flag_norway()
 
 # Bandeira Islândia 50xp 6
 
@@ -312,12 +307,11 @@ screen.title("Bandeira da Islândia - Python Turtle")
 screen.setup(largura=600, altura=400)
 
 # Criar o objeto tartaruga
-t.Turtle()
 t.speed(3)
 t.hideturtle()
 
 # Função para desenhar retângulos
-def draw_retangulo(color, largura, altura, x, y):
+def draw_retangulo_iceland(color, largura, altura, x, y):
     t.pu()
     t.goto(x, y)
     t.pd()
@@ -331,19 +325,19 @@ def draw_retangulo(color, largura, altura, x, y):
     t.end_fill()
 
 # Fundo Azul
-draw_retangulo("#0048E0", 600, 400, -300, 200)
+draw_retangulo_iceland("#0048E0", 600, 400, -300, 200)
 
 # Cruz Branca 
-draw_retangulo("largura", 600, 100, -300, 50)
-draw_retangulo("largura", 100, 400, -100, 200)
+draw_retangulo_iceland("white", 600, 100, -300, 50)
+draw_retangulo_iceland("white", 100, 400, -100, 200)
 
 # Cruz Vermelha 
-draw_retangulo("#D72828", 600, 50, -300, 25)
-draw_retangulo("#D72828", 50, 400, -75, 200)
+draw_retangulo_iceland("#D72828", 600, 50, -300, 25)
+draw_retangulo_iceland("#D72828", 50, 400, -75, 200)
 
 # Bandeira Africa do Sul 75xp
 
-def desenhar_retangulo(t, cor, x, y, largura, altura):
+def desenhar_retangulo_safrica(t, cor, x, y, largura, altura):
     t.pu()
     t.goto(x, y)
     t.pd()
@@ -356,13 +350,14 @@ def desenhar_retangulo(t, cor, x, y, largura, altura):
         t.left(90)
     t.end_fill()
 
-def desenhar_poligono(t, cor, pontos):
+
+def desenhar_poligono_safrica(t, cor, pontos):
     t.pu()
     t.goto(pontos[0])
     t.pd()
     t.color(cor)
     t.begin_fill()
-    for pontos in pontos[1:]:
+    for ponto in pontos[1:]:
         t.goto(ponto)
     t.goto(pontos[0])
     t.end_fill()
@@ -370,7 +365,6 @@ def desenhar_poligono(t, cor, pontos):
 # Configuração da tela
 
 screen.title("Bandeira da África do Sul")
-t.Turtle()
 t.speed(5)
 
 # Cores aproximadas (RGB/Hex)
@@ -382,22 +376,22 @@ PRETO = "#000000"
 BRANCO = "#FFFFFF"
 
 # 1. Fundo/Base (Vermelho em cima, Azul embaixo)
-desenhar_retangulo(t, VERMELHO, -300, 0, 600, 200)
-desenhar_retangulo(t, AZUL, -300, -200, 600, 200)
+desenhar_retangulo_safrica(t, VERMELHO, -300, 0, 600, 200)
+desenhar_retangulo_safrica(t, AZUL, -300, -200, 600, 200)
 
 # 2. Faixa Branca (Base para o Y verde)
 pontos_branco = [(-300, 200), (-300, -200), (0, 0), (600, 0), (600, 60) , (60, 60), (-240, 260)] 
 
 # 3. Faixa Verde (Formato em Y)
-desenhar_poligono(t, VERDE, [(-300, 100), (0, 0), (600, 0), (600, -60), (0, -60), (-300, -260), (-300, -180), (-80, 0), (-300, 180)])
+desenhar_poligono_safrica(t, VERDE, [(-300, 100), (0, 0), (600, 0), (600, -60), (0, -60), (-300, -260), (-300, -180), (-80, 0), (-300, 180)])
 
 # 4. Triângulo Preto e bordas Amarelas
-desenhar_poligono(t, AMARELO, [(-300, 120), (-160, 0), (-300, -120)])
-desenhar_poligono(t, PRETO, [(-300, 100), (-180, 0), (-300, -100)])
+desenhar_poligono_safrica(t, AMARELO, [(-300, 120), (-160, 0), (-300, -120)])
+desenhar_poligono_safrica(t, PRETO, [(-300, 100), (-180, 0), (-300, -100)])
 
 # Bandeira Coreia do Norte 75xp
 
-def desenhar_retangulo(t, cor, largura, altura):
+def desenhar_retangulo_nkorea(t, cor, largura, altura):
     t.begin_fill()
     t.fillcolor(cor)
     for _ in range(2):
@@ -407,7 +401,8 @@ def desenhar_retangulo(t, cor, largura, altura):
         t.right(90)
     t.end_fill()
 
-def desenhar_estrela(t, cor, tamanho):
+
+def desenhar_estrela_nkorea(t, cor, tamanho):
     t.begin_fill()
     t.fillcolor(cor)
     for _ in range(5):
@@ -415,11 +410,11 @@ def desenhar_estrela(t, cor, tamanho):
         t.right(144)
     t.end_fill()
 
+
 def bandeira_coreia_do_norte():
     # Configuração inicial
  
     screen.title("Bandeira da Coreia do Norte")
-    t.Turtle()
     t.speed(3)
 
     # Cores
@@ -435,29 +430,29 @@ def bandeira_coreia_do_norte():
     t.pu()
     t.goto(-150, 100)
     t.pd()
-    desenhar_retangulo(t, azul, largura, altura/3)
+    desenhar_retangulo_nkorea(t, azul, largura, altura/3)
     
     # Desenhar faixas brancas 
     t.pu()
     t.goto(-150, 100 - altura/3)
     t.pd()
-    desenhar_retangulo(t, branco, largura, 10)
+    desenhar_retangulo_nkorea(t, branco, largura, 10)
     
     t.pu()
     t.goto(-150, -100 + altura/3 + 10)
     t.pd()
-    desenhar_retangulo(t, branco, largura, 10)
+    desenhar_retangulo_nkorea(t, branco, largura, 10)
 
     # Desenhar faixas vermelhas
     t.pu()
     t.goto(-150, 100 - altura/3 - 10)
     t.pd()
-    desenhar_retangulo(t, vermelho, largura, altura/3 - 10)
+    desenhar_retangulo_nkorea(t, vermelho, largura, altura/3 - 10)
     
     t.pu()
     t.goto(-150, -100 + altura/3)
     t.pd()
-    desenhar_retangulo(t, vermelho, largura, altura/3 - 10)
+    desenhar_retangulo_nkorea(t, vermelho, largura, altura/3 - 10)
 
     # Desenhar círculo branco
     t.pu()
@@ -473,7 +468,7 @@ def bandeira_coreia_do_norte():
     t.goto(-25, 5) 
     t.pd()
     t.color(vermelho)
-    desenhar_estrela(t, vermelho, 50)
+    desenhar_estrela_nkorea(t, vermelho, 50)
 
 bandeira_coreia_do_norte()
 
@@ -486,7 +481,7 @@ t = turtle.Turtle()
 t.speed(3)
 
 # Função para desenhar retângulos
-def draw_rectangle(color, largura, altura):
+def draw_rectangle_canada(color, largura, altura):
     t.begin_fill()
     t.fillcolor(color)
     for _ in range(2):
@@ -497,15 +492,14 @@ def draw_rectangle(color, largura, altura):
     t.end_fill()
 
 # Desenhar faixas vermelhas e branca
-draw_retangulo("red", 100, 300)
+draw_rectangle_canada("red", 100, 300)
 t.forward(100)
-draw_retangulo("white", 200, 300)
+draw_rectangle_canada("white", 200, 300)
 t.forward(200)
-draw_retangulo("red", 100, 300)
+draw_rectangle_canada("red", 100, 300)
 
 def desenhar_folha_canada():
     # Configuração inicial
-    t.Turtle()
     screen.title("Folha do Canadá")
     screen.bgcolor("white")
     
@@ -561,10 +555,8 @@ def desenhar_folha_canada():
     t.end_fill()
     
 
-
 # Executar a função
 desenhar_folha_canada()
-
 
 
 sleep(5)
