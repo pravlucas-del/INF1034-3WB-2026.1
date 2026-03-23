@@ -5,7 +5,7 @@ import turtle
 screen = turtle.Screen()
 screen.title("Bandeira Costa Rica")
 screen.setup(width=600, height=400)
-t=turtle.Turtle()
+t= Turtle()
 t.speed(5)
 t.hideturtle()
 altura_total=200
@@ -31,33 +31,26 @@ desenhar_faixa("#dc202c", 100-2 * largura_faixa)
 desenhar_faixa("#dc202c",100-3*largura_faixa)
 desenhar_faixa("white",100 - 4 * largura_faixa)
 desenhar_faixa("#0030BF", 100 - 5 * largura_faixa)
-turtle.done()
-t.speed(5)
+
+sleep(5)
 t.clear()
 
-# Chile
 
-for _ in range(4):
+#Emirados Arabes
+
+screen.title("Bandeira Emirados Arabes")
+screen.setup(width=600, height=400)
+t.speed(5)
+t.hideturtle()
+altura=300
+largura=300
+largura_f= altura/6
+for _ in range(2):
     t.forward(100)
     t.right(90)
-    
+    t.forward(50)
+    t.right(90)
 
-largura=300
-altura=200
-def desenhar_retangulo(cor,x,y,l,a):
-    t.pu()
-    t.goto(x,y)
-    t.pd()
-    t.color(cor)
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(1)
-        t.right(90)
-        t.forward(a)
-        t.right(90)
-    t.end_fill()
-
-
-
-
+sleep(5)
+t.clear()
 mainloop()
