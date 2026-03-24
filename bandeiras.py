@@ -4,58 +4,21 @@ import turtle
 
 # ========== CONFIGURAÇÃO GLOBAL ========== 
 screen = turtle.Screen()
-screen.setup(width=800, height=600)
-t = turtle.Turtle()
+
+t.Turtle()
 t.hideturtle()
 
-# ========== BANDEIRA COSTA RICA (50xp) ========== 
-def bandeira_costa_rica():
-    """Desenha a bandeira da Costa Rica com faixas horizontais"""
-    screen.title("Bandeira Costa Rica")
-    screen.bgcolor("white")
-    
-t.speed(5)
-    altura_total = 200
-    largura_total = 300
-    largura_faixa = altura_total / 6
-    
-def desenhar_faixa(cor, y):
-        t.pu()
-        t.goto(-largura_total/2, y)
-        t.pd()
-        t.color(cor)
-        t.begin_fill()
-        for _ in range(2):
-            t.forward(largura_total)
-            t.right(90)
-            t.forward(largura_faixa)
-            t.right(90)
-        t.end_fill()
-    
-    # Desenhar as faixas na ordem correta
-    desenhar_faixa("#0034a3", 100)
-    desenhar_faixa("white", 100 - largura_faixa)
-    desenhar_faixa("#dc202c", 100 - 2 * largura_faixa)
-    desenhar_faixa("#dc202c", 100 - 3 * largura_faixa)
-    desenhar_faixa("white", 100 - 4 * largura_faixa)
-    desenhar_faixa("#0030BF", 100 - 5 * largura_faixa)
-    
-    sleep(3)
 
-# ========== BANDEIRA BRASIL (25xp) ========== 
-def bandeira_brasil():
-    """Desenha a bandeira do Brasil com retângulo, losango e círculo"""
-    screen.clear()
+
+# Bandeira Brasil 25xp
+def desenhar_bandeira():
     screen.title("Bandeira do Brasil")
-    screen.bgcolor("white")
-    
-t.speed(5)
-    
-    # 1. Retângulo Verde
+    t.speed(5)
+    # Retangulo verde
     t.pu()
-    t.goto(-200, 120)
+    t.goto(-200,120)
     t.pd()
-    t.color("#009440")  # Verde oficial
+    t.color("#009440)
     t.begin_fill()
     for _ in range(2):
         t.forward(400)
@@ -63,575 +26,322 @@ t.speed(5)
         t.forward(240)
         t.right(90)
     t.end_fill()
-    
-    # 2. Losango Amarelo
+
+    # Losangolo Amarelo
     t.pu()
-    t.goto(0, 100)
+    t.goto(0,100)
     t.pd()
-    t.color("#ffcb00")
+    t.color('#ffcb00')
     t.begin_fill()
-    t.goto(180, 0)
-    t.goto(0, -100)
-    t.goto(-180, 0)
-    t.goto(0, 100)
+    t.goto(180,0)
+    t.goto(0,-100)
+    t.goto(-180,0)
+    t.goto(0,100)
     t.end_fill()
-    
-    # 3. Círculo Azul
+
+    # Circulo Azul
     t.pu()
-    t.goto(0, -70)
+    t.goto(0,-70)
     t.setheading(0)
     t.pd()
-    t.color("#002776")
+    t.color('#002776')
     t.begin_fill()
     t.circle(70)
     t.end_fill()
-    
-sleep(3)
+    t.hiderturtle()
+    t.clear()
+desenhar_bandeira()
 
-# ========== BANDEIRA HOLANDA (25xp) ========== 
-def bandeira_holanda():
-    """Desenha a bandeira da Holanda com três faixas horizontais"""
-    screen.clear()
-    screen.title("Bandeira Holanda")
-    screen.bgcolor("white")
-    
-t.speed(5)
-    cores = ["#AE1C28", "white", "#21468B"]  # Vermelho, Branco, Azul
-    largura = 300
-    altura = 100
-    
-    for i, cor in enumerate(cores):
-        t.pu()
-        t.goto(-largura/2, 150 - (i * altura))
-        t.pd()
-        t.color(cor)
-        t.begin_fill()
-        for _ in range(2):
-            t.forward(largura)
-            t.right(90)
-            t.forward(altura)
-            t.right(90)
-        t.end_fill()
-    
-    sleep(3)
-
-# ========== BANDEIRA EMIRADOS ÁRABES (50xp) ========== 
-def bandeira_emirados():
-    """Desenha a bandeira dos Emirados Árabes Unidos"""
-    screen.clear()
-    screen.title("Bandeira dos Emirados Árabes Unidos")
-    screen.bgcolor("white")
-    
-t.speed(5)
-    
-def draw_retangulo(cor, x, y, width, height):
-        t.pu()
-        t.goto(x, y)
-        t.pd()
-        t.color(cor)
-        t.begin_fill()
-        for _ in range(2):
-            t.forward(width)
-            t.left(90)
-            t.forward(height)
-            t.left(90)
-        t.end_fill()
-    
-    # Dimensões
-    altura = 200
-    largura = 400
-    strip_largura = largura * 0.75
-    red_largura = largura * 0.25
-    strip_altura = altura / 3
-    
-    # 1. Faixa Vertical Vermelha
-    draw_retangulo("#FF0000", -largura/2, -altura/2, red_largura, altura)
-    
-    # 2. Faixa Horizontal Verde
-    draw_retangulo("#00732F", -largura/2 + red_largura, altura/2 - strip_altura, strip_largura, strip_altura)
-    
-    # 3. Faixa Horizontal Branca
-    draw_retangulo("#FFFFFF", -largura/2 + red_largura, -strip_altura/2, strip_largura, strip_altura)
-    
-    # 4. Faixa Horizontal Preta
-    draw_retangulo("#000000", -largura/2 + red_largura, -altura/2, strip_largura, strip_altura)
-    
-sleep(3)
-
-# ========== BANDEIRA PAQUISTÃO (50xp) ========== 
-def bandeira_paquistao():
-    """Desenha a bandeira do Paquistão com lua crescente e estrela"""
-    screen.clear()
-    screen.title("Bandeira do Paquistão")
-    screen.bgcolor("white")
-    
-t.speed(3)
-    
-    # Configurações iniciais
-    largura = 600
-    altura = 400
-    
-    # Desenhar o retângulo verde
+# Bandeira Japão 25xp
+def desen_japão():
+    screen.title("Bandeira Japão")
+    t.speed(5)
+    # Retangulo Branco
     t.pu()
-    t.goto(-largura/2, altura/2)
+    t.goto(-200,120)
     t.pd()
-    t.color("#004037")  # Verde escuro
+    t.color('#FFFFFF')
     t.begin_fill()
+    # Círculo Vermelho
+    t.pu()
+    t.goto(0,-70)
+    t.setheading(0)
+    t.pd()
+    t.color('#BC002D')
+    t.begin_fill()
+    t.circle(70)
+    t.end_fill()
+    t.hiderturtle()
+    t.clear()
+desen_japão()
+
+# Bandeira Bahamas 50xp
+
+# Desenhar Retângulos
+def des_ret(color,widght,height,x,y):
+    screen.title("Bandeira Bahamas")
+    t.speed(5)
+    t.pu()
+    t.goto(x,y)
+    t.pd()
+    t.color(color)
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(widght)
+        t.right(90)
+        t.forward(height)
+        t.right(90)
+    t.end_fill()
+
+# Desenhar Triângulos
+
+def des_trian(color,x1,y1,x2,y2,x3,y3):
+    t.pu()
+    t.goto(x1,y1)
+    t.pd()
+    t.color(color)
+    t.begin_fill()
+    t.goto(x2,y2)
+    t.goto(x3,y3)
+    t.goto(x1,y1)
+    t.end_fill()
+
+# Desenhar Faixas 
+des_ret("#00778B",800,500,-400,250)
+des_ret('#F9DD15',800,167,-400,-83)
+
+# Desenhar Faixa Central
+des_ret("#FFC72C",800,166,-400,83)
+
+# Desenhar Triângulo Preto
+t.pu()
+t.goto(-400,250)
+t.pd()
+t.color("black")
+t.begin_fill()
+t.goto(0,0)
+t.goto(-400,-250)
+t.goto(-400,250)
+t.end_fill()
+t.hiderturtle()
+t.clear()
+
+# Bandeira Chile 50xp
+def d_reta(t,cor,largura,altura):
+    screen.title("Bandeira Chile")
+    t.speed(5)
+    t.begin_fill()
+    t.fillcolor(cor)
     for _ in range(2):
         t.forward(largura)
         t.right(90)
         t.forward(altura)
         t.right(90)
     t.end_fill()
-    
-    # Desenhar a faixa branca
-    t.pu()
-    t.goto(-largura/2, altura/2)
-    t.pd()
+
+def desenhar_estrela(t,tamanho):
     t.color("white")
+    t.begin_fill()
+    for _ in range(5):
+        t.forward(tamanho)
+        t.right(144)
+    t.end_fill()
+
+# Faixa Vermelha
+t.pu()
+t.goto(-150,-100)
+t.pd()
+d_reta(t,"#D52B1E",largura,100)
+
+# Faixa Branca
+t.pu()
+t.goto(-150,0)
+t.pd()
+d_reta(t,"white",largura,100)
+
+# Quadrado azul
+t.pu()
+t.goto(-150,100)
+t.pd()
+d_reta(t,"#0039A6",100,100)
+
+# Estrela
+t.pu()
+t.goto(-100,65)
+t.pd()
+desenhar_estrela(t,40)
+t.hiderturtler()
+t.clear()
+
+# Bandeira Reino Unido 75xp
+def desenhar_retangulo(cor, largura, altura, x, y):
+    screen.title("Bandeira Reino Unido")
+    t.speed(5)
+    t.pu()
+    t.goto(x, y)
+    t.pendown()
+    t.color(cor)
     t.begin_fill()
     for _ in range(2):
-        t.forward(largura/4)  # 1/4 da largura
-        t.right(90)
+        t.forward(largura)
+        t.left(90)
         t.forward(altura)
+        t.left(90)
+    t.end_fill()
+def desenhar_diagonal(cor, espessura, x1, y1, x2, y2):
+    t.pu()
+    t.goto(x1, y1)
+    t.pd()
+    t.color(cor)
+    t.pensize(espessura)
+    t.goto(x2, y2)
+    # Fundo azul
+    desenhar_retangulo("#012169", 600, 300, -300, -150)
+    # 2. Cruzes Diagonais 
+    desenhar_diagonal("white", 40, -300, 150, 300, -150)
+    desenhar_diagonal("white", 40, -300, -150, 300, 150)
+    desenhar_diagonal("#C8102E", 15, -300, 150, 300, -150)
+    desenhar_diagonal("#C8102E", 15, -300, -150, 300, 150)
+    # 3. Cruz Central Branca 
+    desenhar_retangulo("white", 600, 100, -300, -50)
+    desenhar_retangulo("white", 100, 300, -50, -150)
+    # 4. Cruz Central Vermelha
+    desenhar_retangulo("#C8102E", 600, 60, -300, -30)
+    desenhar_retangulo("#C8102E", 60, 300, -30, -150)
+t.hiderturtle()
+t.clear()
+
+# Bandeira Africa do Sul 75xp
+
+def bandeira():
+    screen.title("Bandeira Africa do Sul")
+    retangulo(-450, 300, 900, 200, '#e03c31')
+    retangulo(-450, 100, 900, 200, '#ffffff')
+    retangulo(-450, -100, 900, 200, '#001489')
+    retangulo(-450, 300, 112.5, 600, '#ffffff')
+    triangulo(-337.5, 300, 600, '#ffffff')
+    retangulo(-450, 60, 900, 120, '#007749')
+    retangulo(-450, 300, 50, 600, '#007749')
+    triangulo(-400, 300, 600, '#007749')
+    triangulo(-450, 235, 470, '#ffb81c')
+    triangulo(-450, 202.5, 405, '#000000')
+    base()
+def retangulo(x, y, fd_x, fd_y, color):
+    t.pu()
+    t.goto(x, y)
+    t.pd()
+    t.color(color)
+    t.begin_fill()
+    for _ in range(2):
+        t.fd(fd_x)
+        t.rt(90)
+        t.fd(fd_y)
+        t.rt(90)
+    t.end_fill()
+def triangulo(x, y, size, color):
+    t.pu()
+    t.goto(x, y)
+    t.pd()
+    t.color(color)
+    t.begin_fill()
+    t.rt(30)
+    t.fd(size)
+    t.rt(120)
+    t.fd(size)
+    t.rt(120)
+    t.fd(size)
+    t.end_fill()
+    t.setheading(0)
+    
+def base():
+    t.pu()
+    t.color('black')
+    t.goto(-450, 300)
+    t.pd()
+    for _ in range(2):
+        t.fd(900)
+        t.rt(90)
+        t.fd(600)
+        t.rt(90)
+        t.clear()
+ # Bandeira Grécia 75xp
+def grecia():
+    for i in range(8):
+        if (i % 2 == 0):
+            color = '#0d5eaf'
+        else:
+            color = '#ffffff'
+        retangulo(-450, 300-(i*66), 900, 66, color)
+    color = '#0d5eaf'
+    retangulo(-450, -228, 900, 72, color)
+    retangulo(-450, 300, 320, 320, color)
+    t.color('#ffffff')
+    t.pu()
+    t.goto(-323, 300)
+    t.pd()
+    t.begin_fill()
+    for _ in range(2):
+        t.fd(66)
+        t.rt(90)
+        t.fd(132)
+        t.lt(90)
+        t.fd(127)
+        t.rt(90)
+        t.fd(66)
+        t.rt(90)
+        t.fd(127)
+        t.lt(90)
+        t.fd(132)
+        t.rt(90)
+    t.end_fill()
+    t.clear
+    base()
+
+#  Bandeira República Centro-Africana 75xp
+def centr_afr():
+    retangulo(-450, 300, 900, 150, '#003082')
+    retangulo(-450, 150, 900, 150, '#ffffff')
+    retangulo(-450, 0, 900, 150, '#289728')
+    retangulo(-450, -150, 900, 150, '#ffce00')
+    retangulo(-75, 300, 150, 600, '#d21034')
+    estrela(-350, 240, 50, '#ffce00')
+    t.clear()
+    base()
+
+# Bandeira Islândia 50xp
+
+screen.title("Bandeira da Islândia")
+
+t.speed(5) 
+
+# Função para desenhar retângulos preenchidos
+def draw_rect(color, x, y, width, height):
+    t.pu()
+    t.goto(x, y)
+    t.pd()
+    t.color(color)
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(width)
+        t.right(90)
+        t.forward(height)
         t.right(90)
     t.end_fill()
-    
-    # Desenhar a Lua Crescente (Crescent)
-    t.pu()
-    t.goto(50, 60)
-    t.pd()
-    t.color("white")
-    t.begin_fill()
-    t.circle(70)
-    t.end_fill()
-    
-    # Desenhar o círculo para "apagar" a lua (fazer o efeito crescente)
-    t.pu()
-    t.goto(75, 75)
-    t.color("#004037")  # Cor de fundo verde
-    t.begin_fill()
-    t.circle(70)
-    t.end_fill()
-    
-    # Desenhar a Estrela
-    t.pu()
-    t.goto(100, 30)
-    t.pd()
-    t.color("white")
-    t.begin_fill()
-    for _ in range(5):
-        t.forward(50)
-        t.right(144)
-    t.end_fill()
-    
-sleep(3)
 
-# ========== BANDEIRA TURQUIA (50xp) ========== 
-def bandeira_turquia():
-    """Desenha a bandeira da Turquia com lua e estrela"""
-    screen.clear()
-    screen.title("Bandeira da Turquia")
-    screen.bgcolor("white")
-    
-t.speed(3)
-    
-    # Configurações iniciais
-    largura = 600
-    altura = 400
-    screen.setup(largura, altura)
-    screen.bgcolor("red")  # Fundo Vermelho
-    
-    # Desenhar a Lua Crescente
-    t.pu()
-    t.goto(-100, -80)
-    t.pd()
-    t.color("white")
-    t.begin_fill()
-    t.circle(80)  # Círculo externo
-    t.end_fill()
-    
-    t.pu()
-    t.goto(-70, -60)
-    t.pd()
-    t.color("red")
-    t.begin_fill()
-    t.circle(60)  # Círculo interno para fazer a lua
-    t.end_fill()
-    
-    # Desenhar a Estrela
-    t.pu()
-    t.goto(50, 0)
-    t.pd()
-    t.color("white")
-    t.begin_fill()
-    for _ in range(5):
-        t.forward(80)
-        t.right(144)
-    t.end_fill()
-    
-sleep(3)
+# 1. Fundo Azul
+draw_rect("#004899", -360, 250, 720, 500)
 
-# ========== BANDEIRA NORUEGA (50xp) ========== 
-def bandeira_noruega():
-    """Desenha a bandeira da Noruega com cruz"""
-    screen.clear()
-    screen.title("Bandeira da Noruega")
-    screen.bgcolor("white")
-    
-t.speed(5)
-    
-    def draw_retangulo_norway(cor, largura, altura):
-        t.begin_fill()
-        t.color(cor)
-        for _ in range(2):
-            t.forward(largura)
-            t.right(90)
-            t.forward(altura)
-            t.right(90)
-        t.end_fill()
-    
-    # Dimensões
-    largura = 220
-    altura = 160
-    
-    # 1. Fundo Vermelho
-    t.pu()
-    t.goto(-110, 80)
-    t.pd()
-    draw_retangulo_norway("#BA0C2F", largura, altura)  # Vermelho Norueguês
-    
-    # 2. Cruz Branca (Horizontal e Vertical)
-    
-    # Horizontal Branca
-    t.pu()
-    t.goto(-110, 20)
-    t.pd()
-    draw_retangulo_norway("white", largura, 40)
-    
-    # Vertical Branca
-    t.pu()
-    t.goto(-30, 80)
-    t.pd()
-    draw_retangulo_norway("white", 40, altura)
-    
-    # 3. Cruz Azul (Horizontal e Vertical)
-    
-    # Horizontal Azul
-    t.pu()
-    t.goto(-110, 10)
-    t.pd()
-    draw_retangulo_norway("#00205B", largura, 20)  # Azul Norueguês
-    
-    # Vertical Azul
-    t.pu()
-    t.goto(-20, 80)
-    t.pd()
-    draw_retangulo_norway("#00205B", 20, altura)
-    
-sleep(3)
+# 2. Cruz Branca
+draw_rect("#FFFFFF", -360, 60, 720, 120)
+draw_rect("#FFFFFF", -100, 250, 120, 500)
 
-# ========== BANDEIRA ISLÂNDIA (50xp) ========== 
-def bandeira_islandia():
-    """Desenha a bandeira da Islândia com cruzes"""
-    screen.clear()
-    screen.title("Bandeira da Islândia")
-    screen.bgcolor("white")
-    
-t.speed(3)
-    
-def draw_retangulo_iceland(cor, largura, altura, x, y):
-        t.pu()
-        t.goto(x, y)
-        t.pd()
-        t.color(cor)
-        t.begin_fill()
-        for _ in range(2):
-            t.forward(largura)
-            t.right(90)
-            t.forward(altura)
-            t.right(90)
-        t.end_fill()
-    
-    # Fundo Azul
-    draw_retangulo_iceland("#0048E0", 600, 400, -300, 200)
-    
-    # Cruz Branca
-    draw_retangulo_iceland("white", 600, 100, -300, 50)
-    draw_retangulo_iceland("white", 100, 400, -100, 200)
-    
-    # Cruz Vermelha
-    draw_retangulo_iceland("#D72828", 600, 50, -300, 25)
-    draw_retangulo_iceland("#D72828", 50, 400, -75, 200)
-    
-sleep(3)
+# 3. Cruz Vermelha 
+draw_rect( "#DC1E35", -360, 30, 720, 60)
+draw_rect( "#DC1E35", -70, 250, 60, 500)
 
-# ========== BANDEIRA ÁFRICA DO SUL (75xp) ========== 
-def bandeira_africa_do_sul():
-    """Desenha a bandeira da África do Sul"""
-    screen.clear()
-    screen.title("Bandeira da África do Sul")
-    screen.bgcolor("white")
-    
-t.speed(5)
-    
-def desenhar_retangulo_safrica(cor, x, y, largura, altura):
-        t.pu()
-        t.goto(x, y)
-        t.pd()
-        t.color(cor)
-        t.begin_fill()
-        for _ in range(2):
-            t.forward(largura)
-            t.left(90)
-            t.forward(altura)
-            t.left(90)
-        t.end_fill()
-    
-def desenhar_poligono_safrica(cor, pontos):
-        t.pu()
-        t.goto(pontos[0])
-        t.pd()
-        t.color(cor)
-        t.begin_fill()
-        for ponto in pontos[1:]:
-            t.goto(ponto)
-        t.goto(pontos[0])
-        t.end_fill()
-    
-    # Cores aproximadas (RGB/Hex)
-    VERMELHO = "#E23D28"
-    AZUL = "#002395"
-    VERDE = "#007749"
-    AMARELO = "#FFB81C"
-    PRETO = "#000000"
-    BRANCO = "#FFFFFF"
-    
-    # 1. Fundo/Base (Vermelho em cima, Azul embaixo)
-    desenhar_retangulo_safrica(VERMELHO, -300, 0, 600, 200)
-    desenhar_retangulo_safrica(AZUL, -300, -200, 600, 200)
-    
-    # 2. Faixa Branca (Base para o Y verde)
-    pontos_branco = [(-300, 200), (-300, -200), (0, 0), (600, 0), (600, 60), (60, 60), (-240, 260)]
-    
-    # 3. Faixa Verde (Formato em Y)
-    desenhar_poligono_safrica(VERDE, [(-300, 100), (0, 0), (600, 0), (600, -60), (0, -60), (-300, -260), (-300, -180), (-80, 0), (-300, 180)])
-    
-    # 4. Triângulo Preto e bordas Amarelas
-    desenhar_poligono_safrica(AMARELO, [(-300, 120), (-160, 0), (-300, -120)])
-    desenhar_poligono_safrica(PRETO, [(-300, 100), (-180, 0), (-300, -100)])
-    
-sleep(3)
 
-# ========== BANDEIRA COREIA DO NORTE (75xp) ========== 
-def bandeira_coreia_do_norte():
-    """Desenha a bandeira da Coreia do Norte"""
-    screen.clear()
-    screen.title("Bandeira da Coreia do Norte")
-    screen.bgcolor("white")
-    
-t.speed(3)
-    
-def desenhar_retangulo_nkorea(cor, largura, altura):
-        t.begin_fill()
-        t.fillcolor(cor)
-        for _ in range(2):
-            t.forward(largura)
-            t.right(90)
-            t.forward(altura)
-            t.right(90)
-        t.end_fill()
-    
-def desenhar_estrela_nkorea(cor, tamanho):
-        t.begin_fill()
-        t.fillcolor(cor)
-        for _ in range(5):
-            t.forward(tamanho)
-            t.right(144)
-        t.end_fill()
-    
-    # Cores
-    vermelho = "#ED1C27"
-    azul = "#024FA2"
-    branco = "#FFFFFF"
-    
-    # Dimensões (proporção aproximada)
-    largura = 300
-    altura = 200
-    
-    # Desenhar faixa azul superior
-    t.pu()
-    t.goto(-150, 100)
-    t.pd()
-    desenhar_retangulo_nkorea(azul, largura, altura/3)
-    
-    # Desenhar faixas brancas
-    t.pu()
-    t.goto(-150, 100 - altura/3)
-    t.pd()
-    desenhar_retangulo_nkorea(branco, largura, 10)
-    
-t.pu()
-    t.goto(-150, -100 + altura/3 + 10)
-    t.pd()
-    desenhar_retangulo_nkorea(branco, largura, 10)
-    
-    # Desenhar faixas vermelhas
-    t.pu()
-    t.goto(-150, 100 - altura/3 - 10)
-    t.pd()
-    desenhar_retangulo_nkorea(vermelho, largura, altura/3 - 10)
-    
-t.pu()
-    t.goto(-150, -100 + altura/3)
-    t.pd()
-    desenhar_retangulo_nkorea(vermelho, largura, altura/3 - 10)
-    
-    # Desenhar círculo branco
-    t.pu()
-    t.goto(0, -40)
-    t.pd()
-    t.color(branco)
-    t.begin_fill()
-    t.circle(40)
-    t.end_fill()
-    
-    # Desenhar estrela vermelha
-    t.pu()
-    t.goto(-25, 5)
-    t.pd()
-    t.color(vermelho)
-    desenhar_estrela_nkorea(vermelho, 50)
-    
-sleep(3)
+t.hideturtle()
 
-# ========== BANDEIRA CANADÁ (200xp - Desafio) ==========
-def bandeira_canada():
-    """Desenha a bandeira do Canadá com folha"""
-    screen.clear()
-    screen.title("Bandeira do Canadá")
-    screen.bgcolor("white")
-    
-t.speed(3)
-    
-def draw_rectangle_canada(cor, largura, altura):
-        t.begin_fill()
-        t.fillcolor(cor)
-        for _ in range(2):
-            t.forward(largura)
-            t.right(90)
-            t.forward(altura)
-            t.right(90)
-        t.end_fill()
-    
-    # Desenhar faixas vermelhas e branca
-    draw_rectangle_canada("red", 100, 300)
-    t.forward(100)
-    draw_rectangle_canada("white", 200, 300)
-    t.forward(200)
-    draw_rectangle_canada("red", 100, 300)
-    
-    # Desenhar folha
-    t.pu()
-    t.goto(0, 0)
-    t.pd()
-    t.color("red")
-    t.begin_fill()
-    t.speed(3)
-    t.left(90)
-    
-    # Desenho da folha (forma simplificada)
-    t.forward(100)
-    
-    # Lado esquerdo
-    t.right(120)
-    t.forward(30)
-    t.left(120)
-    t.forward(30)
-    t.right(120)
-    t.forward(30)
-    t.left(120)
-    t.forward(30)
-    t.right(120)
-    t.forward(30)
-    
-    # Topo
-    t.left(150)
-    t.forward(40)
-    t.right(150)
-    t.forward(40)
-    
-    # Lado direito
-    t.left(120)
-    t.forward(30)
-    t.right(120)
-    t.forward(30)
-    t.left(120)
-    t.forward(30)
-    t.right(120)
-    t.forward(30)
-    t.left(120)
-    t.forward(30)
-    
-t.right(120)
-    t.forward(100)
-    
-    # Base/Caule
-    t.right(90)
-    t.forward(20)
-    t.right(90)
-    t.forward(20)
-    t.right(90)
-    t.forward(20)
-    
-t.end_fill()
-    
-sleep(3)
-
-# ========== MENU PRINCIPAL ========== 
-def menu():
-    """Exibe menu para o usuário escolher qual bandeira desenhar"""
-    bandeiras = {
-        "1": ("Costa Rica", bandeira_costa_rica),
-        "2": ("Brasil", bandeira_brasil),
-        "3": ("Holanda", bandeira_holanda),
-        "4": ("Emirados Árabes", bandeira_emirados),
-        "5": ("Paquistão", bandeira_paquistao),
-        "6": ("Turquia", bandeira_turquia),
-        "7": ("Noruega", bandeira_noruega),
-        "8": ("Islândia", bandeira_islandia),
-        "9": ("África do Sul", bandeira_africa_do_sul),
-        "10": ("Coreia do Norte", bandeira_coreia_do_norte),
-        "11": ("Canadá", bandeira_canada),
-        "0": ("Sair", None),
-    }
-    
-    while True:
-        print("\n" + "="*50)
-        print("         PROJETO BANDEIRAS - TURTLE GRAPHICS")
-        print("="*50)
-        for key, (nome, _) in bandeiras.items():
-            print(f"  {key:2s}. {nome}")
-        print("="*50)
-        
-        escolha = input("\nEscolha uma opção (0 para sair): ").strip()
-        
-        if escolha not in bandeiras:
-            print("Opção inválida! Tente novamente.")
-            continue
-        
-        if escolha == "0":
-            print("\nFechando o programa...")
-            screen.clear()
-            screen.exitonclick()
-            break
-        
-        _, funcao = bandeiras[escolha]
-        try:
-            funcao()
-        except Exception as e:
-            print(f"Erro ao desenhar a bandeira: {e}")
-
-# ========== EXECUÇÃO ========== 
-if __name__ == "__main__":
-    menu()
+sleep(5)
+t.clear()    
+mainloop()    
