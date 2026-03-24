@@ -5,7 +5,7 @@ import turtle
 # ========== CONFIGURAÇÃO GLOBAL ========== 
 screen = turtle.Screen()
 
-t.Turtle()
+t = turtle.Turtle()
 t.hideturtle()
 
 
@@ -18,7 +18,7 @@ def desenhar_bandeira():
     t.pu()
     t.goto(-200,120)
     t.pd()
-    t.color("#009440)
+    t.color("#009440")
     t.begin_fill()
     for _ in range(2):
         t.forward(400)
@@ -48,9 +48,7 @@ def desenhar_bandeira():
     t.begin_fill()
     t.circle(70)
     t.end_fill()
-    t.hiderturtle()
-    t.clear()
-desenhar_bandeira()
+    t.hideturtle()
 
 # Bandeira Japão 25xp
 def desen_japão():
@@ -62,6 +60,12 @@ def desen_japão():
     t.pd()
     t.color('#FFFFFF')
     t.begin_fill()
+    for _ in range(2):
+        t.forward(400)
+        t.right(90)
+        t.forward(240)
+        t.right(90)
+    t.end_fill()
     # Círculo Vermelho
     t.pu()
     t.goto(0,-70)
@@ -71,14 +75,12 @@ def desen_japão():
     t.begin_fill()
     t.circle(70)
     t.end_fill()
-    t.hiderturtle()
-    t.clear()
-desen_japão()
+    t.hideturtle()
 
 # Bandeira Bahamas 50xp
 
 # Desenhar Retângulos
-def des_ret(color,widght,height,x,y):
+def des_ret(color, width, height, x, y):
     screen.title("Bandeira Bahamas")
     t.speed(5)
     t.pu()
@@ -87,14 +89,13 @@ def des_ret(color,widght,height,x,y):
     t.color(color)
     t.begin_fill()
     for _ in range(2):
-        t.forward(widght)
+        t.forward(width)
         t.right(90)
         t.forward(height)
         t.right(90)
     t.end_fill()
 
 # Desenhar Triângulos
-
 def des_trian(color,x1,y1,x2,y2,x3,y3):
     t.pu()
     t.goto(x1,y1)
@@ -106,72 +107,51 @@ def des_trian(color,x1,y1,x2,y2,x3,y3):
     t.goto(x1,y1)
     t.end_fill()
 
-# Desenhar Faixas 
-des_ret("#00778B",800,500,-400,250)
-des_ret('#F9DD15',800,167,-400,-83)
-
-# Desenhar Faixa Central
-des_ret("#FFC72C",800,166,-400,83)
-
-# Desenhar Triângulo Preto
-t.pu()
-t.goto(-400,250)
-t.pd()
-t.color("black")
-t.begin_fill()
-t.goto(0,0)
-t.goto(-400,-250)
-t.goto(-400,250)
-t.end_fill()
-t.hiderturtle()
-t.clear()
-
 # Bandeira Chile 50xp
-def d_reta(t,cor,largura,altura):
+def d_reta(turtle_obj, cor, largura, altura):
     screen.title("Bandeira Chile")
-    t.speed(5)
-    t.begin_fill()
-    t.fillcolor(cor)
+    turtle_obj.speed(5)
+    turtle_obj.begin_fill()
+    turtle_obj.fillcolor(cor)
     for _ in range(2):
-        t.forward(largura)
-        t.right(90)
-        t.forward(altura)
-        t.right(90)
-    t.end_fill()
+        turtle_obj.forward(largura)
+        turtle_obj.right(90)
+        turtle_obj.forward(altura)
+        turtle_obj.right(90)
+    turtle_obj.end_fill()
 
-def desenhar_estrela(t,tamanho):
-    t.color("white")
-    t.begin_fill()
+def desenhar_estrela(turtle_obj, tamanho):
+    turtle_obj.color("white")
+    turtle_obj.begin_fill()
     for _ in range(5):
-        t.forward(tamanho)
-        t.right(144)
-    t.end_fill()
+        turtle_obj.forward(tamanho)
+        turtle_obj.right(144)
+    turtle_obj.end_fill()
 
 # Faixa Vermelha
 t.pu()
 t.goto(-150,-100)
 t.pd()
-d_reta(t,"#D52B1E",largura,100)
+d_reta(t, "#D52B1E", 300, 100)
 
 # Faixa Branca
 t.pu()
 t.goto(-150,0)
 t.pd()
-d_reta(t,"white",largura,100)
+d_reta(t, "white", 300, 100)
 
 # Quadrado azul
 t.pu()
 t.goto(-150,100)
 t.pd()
-d_reta(t,"#0039A6",100,100)
+d_reta(t, "#0039A6", 100, 100)
 
 # Estrela
 t.pu()
 t.goto(-100,65)
 t.pd()
-desenhar_estrela(t,40)
-t.hiderturtler()
-t.clear()
+desenhar_estrela(t, 40)
+t.hideturtle()
 
 # Bandeira Reino Unido 75xp
 def desenhar_retangulo(cor, largura, altura, x, y):
@@ -188,6 +168,7 @@ def desenhar_retangulo(cor, largura, altura, x, y):
         t.forward(altura)
         t.left(90)
     t.end_fill()
+
 def desenhar_diagonal(cor, espessura, x1, y1, x2, y2):
     t.pu()
     t.goto(x1, y1)
@@ -195,38 +176,38 @@ def desenhar_diagonal(cor, espessura, x1, y1, x2, y2):
     t.color(cor)
     t.pensize(espessura)
     t.goto(x2, y2)
-    # Fundo azul
-    desenhar_retangulo("#012169", 600, 300, -300, -150)
-    # 2. Cruzes Diagonais 
-    desenhar_diagonal("white", 40, -300, 150, 300, -150)
-    desenhar_diagonal("white", 40, -300, -150, 300, 150)
-    desenhar_diagonal("#C8102E", 15, -300, 150, 300, -150)
-    desenhar_diagonal("#C8102E", 15, -300, -150, 300, 150)
-    # 3. Cruz Central Branca 
-    desenhar_retangulo("white", 600, 100, -300, -50)
-    desenhar_retangulo("white", 100, 300, -50, -150)
-    # 4. Cruz Central Vermelha
-    desenhar_retangulo("#C8102E", 600, 60, -300, -30)
-    desenhar_retangulo("#C8102E", 60, 300, -30, -150)
-t.hiderturtle()
-t.clear()
+
+# Fundo azul
+desenhar_retangulo("#012169", 600, 300, -300, -150)
+# 2. Cruzes Diagonais 
+desenhar_diagonal("white", 40, -300, 150, 300, -150)
+desenhar_diagonal("white", 40, -300, -150, 300, 150)
+desenhar_diagonal("#C8102E", 15, -300, 150, 300, -150)
+desenhar_diagonal("#C8102E", 15, -300, -150, 300, 150)
+# 3. Cruz Central Branca 
+desenhar_retangulo("white", 600, 100, -300, -50)
+desenhar_retangulo("white", 100, 300, -50, -150)
+# 4. Cruz Central Vermelha
+desenhar_retangulo("#C8102E", 600, 60, -300, -30)
+desenhar_retangulo("#C8102E", 60, 300, -30, -150)
+t.hideturtle()
 
 # Bandeira Africa do Sul 75xp
-
-def bandeira():
+def bandeira_africa():
     screen.title("Bandeira Africa do Sul")
-    retangulo(-450, 300, 900, 200, '#e03c31')
-    retangulo(-450, 100, 900, 200, '#ffffff')
-    retangulo(-450, -100, 900, 200, '#001489')
-    retangulo(-450, 300, 112.5, 600, '#ffffff')
-    triangulo(-337.5, 300, 600, '#ffffff')
-    retangulo(-450, 60, 900, 120, '#007749')
-    retangulo(-450, 300, 50, 600, '#007749')
-    triangulo(-400, 300, 600, '#007749')
-    triangulo(-450, 235, 470, '#ffb81c')
-    triangulo(-450, 202.5, 405, '#000000')
-    base()
-def retangulo(x, y, fd_x, fd_y, color):
+    retangulo_afr(-450, 300, 900, 200, '#e03c31')
+    retangulo_afr(-450, 100, 900, 200, '#ffffff')
+    retangulo_afr(-450, -100, 900, 200, '#001489')
+    retangulo_afr(-450, 300, 112.5, 600, '#ffffff')
+    triangulo_afr(-337.5, 300, 600, '#ffffff')
+    retangulo_afr(-450, 60, 900, 120, '#007749')
+    retangulo_afr(-450, 300, 50, 600, '#007749')
+    triangulo_afr(-400, 300, 600, '#007749')
+    triangulo_afr(-450, 235, 470, '#ffb81c')
+    triangulo_afr(-450, 202.5, 405, '#000000')
+    base_afr()
+
+def retangulo_afr(x, y, fd_x, fd_y, color):
     t.pu()
     t.goto(x, y)
     t.pd()
@@ -238,7 +219,9 @@ def retangulo(x, y, fd_x, fd_y, color):
         t.fd(fd_y)
         t.rt(90)
     t.end_fill()
-def triangulo(x, y, size, color):
+
+
+def triangulo_afr(x, y, size, color):
     t.pu()
     t.goto(x, y)
     t.pd()
@@ -252,8 +235,8 @@ def triangulo(x, y, size, color):
     t.fd(size)
     t.end_fill()
     t.setheading(0)
-    
-def base():
+
+def base_afr():
     t.pu()
     t.color('black')
     t.goto(-450, 300)
@@ -263,18 +246,19 @@ def base():
         t.rt(90)
         t.fd(600)
         t.rt(90)
-        t.clear()
- # Bandeira Grécia 75xp
+
+# Bandeira Grécia 75xp
 def grecia():
+    screen.title("Bandeira Grécia")
     for i in range(8):
         if (i % 2 == 0):
             color = '#0d5eaf'
         else:
             color = '#ffffff'
-        retangulo(-450, 300-(i*66), 900, 66, color)
+        retangulo_afr(-450, 300-(i*66), 900, 66, color)
     color = '#0d5eaf'
-    retangulo(-450, -228, 900, 72, color)
-    retangulo(-450, 300, 320, 320, color)
+    retangulo_afr(-450, -228, 900, 72, color)
+    retangulo_afr(-450, 300, 320, 320, color)
     t.color('#ffffff')
     t.pu()
     t.goto(-323, 300)
@@ -294,22 +278,31 @@ def grecia():
         t.fd(132)
         t.rt(90)
     t.end_fill()
-    t.clear
-    base()
+    base_afr()
 
-#  Bandeira República Centro-Africana 75xp
+# Bandeira República Centro-Africana 75xp
 def centr_afr():
-    retangulo(-450, 300, 900, 150, '#003082')
-    retangulo(-450, 150, 900, 150, '#ffffff')
-    retangulo(-450, 0, 900, 150, '#289728')
-    retangulo(-450, -150, 900, 150, '#ffce00')
-    retangulo(-75, 300, 150, 600, '#d21034')
-    estrela(-350, 240, 50, '#ffce00')
-    t.clear()
-    base()
+    screen.title("Bandeira República Centro-Africana")
+    retangulo_afr(-450, 300, 900, 150, '#003082')
+    retangulo_afr(-450, 150, 900, 150, '#ffffff')
+    retangulo_afr(-450, 0, 900, 150, '#289728')
+    retangulo_afr(-450, -150, 900, 150, '#ffce00')
+    retangulo_afr(-75, 300, 150, 600, '#d21034')
+    estrela_afr(-350, 240, 50, '#ffce00')
+    base_afr()
+
+def estrela_afr(x, y, size, color):
+    t.pu()
+    t.goto(x, y)
+    t.pd()
+    t.color(color)
+    t.begin_fill()
+    for _ in range(5):
+        t.forward(size)
+        t.right(72)
+    t.end_fill()
 
 # Bandeira Islândia 50xp
-
 screen.title("Bandeira da Islândia")
 
 t.speed(5) 
@@ -336,12 +329,11 @@ draw_rect("#FFFFFF", -360, 60, 720, 120)
 draw_rect("#FFFFFF", -100, 250, 120, 500)
 
 # 3. Cruz Vermelha 
-draw_rect( "#DC1E35", -360, 30, 720, 60)
-draw_rect( "#DC1E35", -70, 250, 60, 500)
-
+draw_rect("#DC1E35", -360, 30, 720, 60)
+draw_rect("#DC1E35", -70, 250, 60, 500)
 
 t.hideturtle()
 
 sleep(5)
 t.clear()    
-mainloop()    
+ mainloop()
