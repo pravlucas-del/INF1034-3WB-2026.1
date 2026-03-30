@@ -135,6 +135,7 @@ def desenhar_retangulo(cor, largura, altura, x, y):
         t.forward(altura)
         t.left(90)
     t.end_fill()
+t.clear()
 
 def desenhar_diagonal(cor, espessura, x1, y1, x2, y2):
     t.pu()
