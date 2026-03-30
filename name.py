@@ -62,9 +62,6 @@ def desenhar_triangulo(x,y,color,x2,y2,x3,y3):
     t.goto(x3,y3)
     
     
-    
-        
-    t.end_fill()
    
 def desenhar_diagonal(cor, espessura, x1, y1, x2, y2):
     t.pu()
@@ -103,13 +100,24 @@ def desenhar_Bahamas():
 desenhar_Bahamas()
 t.clear()
 def desenhar_Reino_Unido():
-    desenhar_retangulo(600,300,-300,-150,'#00247D')
-    desenhar_diagonal('white',40,-300,150,300,-150)
-    desenhar_diagonal('white',40,-300,-150,300,150)
-    desenhar_diagonal('#c8102e',15,-300,150,300,150)
-    desenhar_diagonal('#c8102e',15,-300,-150,300,150)
-    #Cruz central
-    desenhar_retangulo(600,300,-300,-150,'white')
+    # Fundo Azul
+    desenhar_retangulo(-200,120,240,400,'#012169')
+    #Cruzes Diagonais
+    desenhar_diagonal('white',40,-200,150,200,-150)
+    desenhar_diagonal('white',40,-200,-150,200,150)
+    desenhar_diagonal('#c8102e',15,-200,150,200,150)
+    desenhar_diagonal('#c8102e',15,-200,-50,100,150)
+    #Cruz central Branca
+    desenhar_retangulo(-200,120,240,-50,'white')
+    desenhar_retangulo(-200,120,-50,-150,'white')
+    # Cruz Central Vermelha
+    desenhar_retangulo(100,60,-200,-30,'#c8102e')
+    desenhar_retangulo(60,100,-30,-150,'#c8102e')
+
+desenhar_Reino_Unido()
+t.clear
+
+
 
 
 
