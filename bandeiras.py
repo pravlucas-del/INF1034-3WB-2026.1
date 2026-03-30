@@ -11,7 +11,7 @@ t.hideturtle()
 
 
 # Bandeira Brasil 25xp
-def desenhar_bandeira():
+def desenhar_Brasil():
     screen.title("Bandeira do Brasil")
     t.speed(5)
     # Retangulo verde
@@ -49,6 +49,7 @@ def desenhar_bandeira():
     t.circle(70)
     t.end_fill()
     t.hideturtle()
+t.clear()
 
 # Bandeira Japão 25xp
 def desen_japão():
@@ -76,6 +77,7 @@ def desen_japão():
     t.circle(70)
     t.end_fill()
     t.hideturtle()
+t.clear()
 
 # Bandeira Bahamas 50xp
 
@@ -107,52 +109,17 @@ def des_trian(color,x1,y1,x2,y2,x3,y3):
     t.goto(x1,y1)
     t.end_fill()
 
-# Bandeira Chile 50xp
-def d_reta(turtle_obj, cor, largura, altura):
-    screen.title("Bandeira Chile")
-    turtle_obj.speed(5)
-    turtle_obj.begin_fill()
-    turtle_obj.fillcolor(cor)
-    for _ in range(2):
-        turtle_obj.forward(largura)
-        turtle_obj.right(90)
-        turtle_obj.forward(altura)
-        turtle_obj.right(90)
-    turtle_obj.end_fill()
+# Bandeira Holanda 25xp
+def desen_holanda():
+    screen.title("Bandeira Holanda")
+    t.speed(5)
+    des_ret('#21468B', 400, 80, -200, 120)
+    des_ret('white', 400, 80, -200, 40)
+    des_ret('#AE1C28', 400, 80, -200, -40)
+sleep(5)
+t.clear()
 
-def desenhar_estrela(turtle_obj, tamanho):
-    turtle_obj.color("white")
-    turtle_obj.begin_fill()
-    for _ in range(5):
-        turtle_obj.forward(tamanho)
-        turtle_obj.right(144)
-    turtle_obj.end_fill()
-
-# Faixa Vermelha
-t.pu()
-t.goto(-150,-100)
-t.pd()
-d_reta(t, "#D52B1E", 300, 100)
-
-# Faixa Branca
-t.pu()
-t.goto(-150,0)
-t.pd()
-d_reta(t, "white", 300, 100)
-
-# Quadrado azul
-t.pu()
-t.goto(-150,100)
-t.pd()
-d_reta(t, "#0039A6", 100, 100)
-
-# Estrela
-t.pu()
-t.goto(-100,65)
-t.pd()
-desenhar_estrela(t, 40)
-t.hideturtle()
-
+    
 # Bandeira Reino Unido 75xp
 def desenhar_retangulo(cor, largura, altura, x, y):
     screen.title("Bandeira Reino Unido")
