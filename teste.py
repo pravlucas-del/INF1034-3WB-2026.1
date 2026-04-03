@@ -1,62 +1,47 @@
 import turtle
+import random
 
-def draw_rectangle(color, x, y, width, height):
-    turtle.penup()
-    turtle.goto(x, y)
-    turtle.pendown()
-    turtle.color(color)
-    turtle.begin_fill()
-    for _ in range(2):
-        turtle.forward(width)
-        turtle.right(90)
-        turtle.forward(height)
-        turtle.right(90)
-    turtle.end_fill()
-
-def draw_star(color, x, y, size):
-    turtle.penup()
-    turtle.goto(x, y)
-    turtle.pendown()
-    turtle.color(color)
-    turtle.begin_fill()
-    for _ in range(5):
-        turtle.forward(size)
-        turtle.right(144)
-    turtle.end_fill()
-
-def draw_flag():
+def correr_tartarugas(n):
     # Configuração da tela
-    turtle.setup(600, 400)
-    turtle.speed(3)
+    screen = turtle.Screen()
+    screen.title(f"Corrida de {n} Tartarugas")
+    screen.setup(width=600, height=400)
     
-    # Cores (Azul e Vermelho)
-    blue = "#002A8F" # [7] Ficheiro:Flag of Cuba.svg – Wikipédia, a enciclopédia livre
-    red = "#DA291C"
+    # Linha de chegada
+    finish_line = 250
     
-    # 5 Faixas (3 azul, 2 brancas)
-    stripe_height = 400 / 5
-    draw_rectangle(blue, -300, 200, 600, stripe_height)
-    draw_rectangle("white", -300, 200 - stripe_height, 600, stripe_height)
-    draw_rectangle(blue, -300, 200 - 2 * stripe_height, 600, stripe_height)
-    draw_rectangle("white", -300, 200 - 3 * stripe_height, 600, stripe_height)
-    draw_rectangle(blue, -300, 200 - 4 * stripe_height, 600, stripe_height)
+    # Criar as N tartarugas
+    tartarugas = []
+    cores = ["red", "blue", "green", "orange", "purple", "pink", "yellow", "brown"]
     
-    # Triângulo Vermelho
-    turtle.penup()
-    turtle.goto(-300, 200)
-    turtle.pendown()
-    turtle.color(red)
-    turtle.begin_fill()
-    turtle.goto(-100, 0)
-    turtle.goto(-300, -200)
-    turtle.goto(-300, 200)
-    turtle.end_fill()
+    # Espaçamento vertical entre tartarugas
+    y_pos = - (n * 20) // 2
     
-    # Estrela Branca
-    draw_star("white", -220, 25, 60)
-    
-    turtle.hideturtle()
-    turtle.done()
+    for i in range(n):
+        t = turtle.Turtle(shape="turtle")
+        t.penup()
+        # Define cor (cicla cores se N > len(cores))
+        t.color(cores[i % len(cores)])
+        t.goto(-280, y_pos)
+        tartarugas.append(t)
+        y_pos += 40
+        
+    # Lógica da corrida
+    corrida = True
+    while corrida:
+        for t in tartarugas:
+            distancia = random.randint(1, 10)
+            t.forward(distancia)
+            
+            # Checar vencedor
+            if t.xcor() >= finish_line:
+                vencedor = t.color()[0]
+                print(f"A tartaruga {vencedor} venceu!")
+                corrida = False
+                break
+                
+    screen.exitonclick()
 
-# draw_flag()
-turtle.mainloop()
+# Exemplo de uso: correr_tartarugas(5)
+correr_tartarugas(5)
+mainloop()
